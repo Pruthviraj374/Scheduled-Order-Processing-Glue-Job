@@ -69,6 +69,8 @@ This will deploy all the required resources with their respective properties for
 
 <a name="Executing_the_Job"><a/>
 # Executing The Job
+Upload the excel data file in the S3 data bucket which is created by the CloudFormation template (Use can also use the excel file which is provided along with the script files to test the job.).
+
 Open the AWS glue console at [link](https://console.aws.amazon.com/glue/).Then choose the ETL Jobs tab in AWS Glue. Select the job which is created by AWS CloudFormation stack .
 
 Navigate to the Schedules tab of the visual editor . Choose the schedule that is already present there , then choose **Action** followed by  **Resume Schedule** . This activates the AWS Glue Job , now runs at an interval of 1 hour. 

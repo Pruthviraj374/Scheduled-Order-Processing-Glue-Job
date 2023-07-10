@@ -9,7 +9,7 @@ Table of Contents
    * [Monitoring The Job](#Monitoring_the_Job)
 <a name="introduction"></a>
 # Introduction
-Scheduled Order Processing Glue Job project is a scheduled data processing solution designed to validate and store data stored in [Amazon S3](https://aws.amazon.com/s3/). By using [AWS Glue](https://aws.amazon.com/glue/), this project automates the process of checking the accuracy of the data and making sure it is complete. The validated data is then stored in [Amazon DynamoDb](https://aws.amazon.com/pm/dynamodb/?trk=1e5631f8-a3e1-45eb-8587-22803d0da70e&sc_channel=ps&ef_id=CjwKCAjw2K6lBhBXEiwA5RjtCTasM40BbrnZWBwFbm5bvdQguyPwuHx23xzlchSYo6j34mmcn0X2oxoCxiAQAvD_BwE:G:s&s_kwcid=AL!4422!3!536393613268!e!!g!!amazon%20dynamodb!11539699824!109299643181), making it easily accessible. The invalid data is sent to the user via email. Job runs are monitored, and failures are reported to the user via email alerts. Finally, an [AWS CloudFormation](https://aws.amazon.com/cloudformation/) template is produced that deploys all the resources needed for the project with the required specifications.
+Scheduled Order Processing Glue Job project is a scheduled data processing solution designed to validate and store data stored in [Amazon S3](https://aws.amazon.com/s3/). By using [AWS Glue](https://aws.amazon.com/glue/), this project automates the process of checking the accuracy of the data and making sure it is complete. The validated data is then stored in [Amazon DynamoDB](https://aws.amazon.com/pm/dynamodb/?trk=1e5631f8-a3e1-45eb-8587-22803d0da70e&sc_channel=ps&ef_id=CjwKCAjw2K6lBhBXEiwA5RjtCTasM40BbrnZWBwFbm5bvdQguyPwuHx23xzlchSYo6j34mmcn0X2oxoCxiAQAvD_BwE:G:s&s_kwcid=AL!4422!3!536393613268!e!!g!!amazon%20dynamodb!11539699824!109299643181), making it easily accessible. The invalid data is sent to the user via email. Job runs are monitored, and failures are reported to the user via email alerts. Finally, an [AWS CloudFormation](https://aws.amazon.com/cloudformation/) template is produced that deploys all the resources needed for the project with the required specifications.
 
 
 
@@ -24,9 +24,9 @@ The data that is stored in an Amazon S3 bucket is accessed by an AWS Glue job, w
 
 <a name="Installation_Guide"></a>
 # Installation Guide
-Download all the files provided in the repository .There are 3 files provided: a Python scriptfile ,a AWS CloudFormation template, and a sample Excel file. 
+Download all the files provided in the repository.There are three files provided: a Python script file,a AWS CloudFormation template, and a sample Excel file.
 
-Sign in to the AWS Management Console, then follow these steps 
+Sign in to the AWS Management Console, then follow these steps:
 
  1. Create a S3 bucket from AWS Console (open the Amazon S3 console at [link](https://console.aws.amazon.com/s3/)) and store the Python scriptfile in it .
  

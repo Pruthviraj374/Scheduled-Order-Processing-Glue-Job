@@ -28,61 +28,60 @@ Download all the files provided in the repository.There are three files provided
 
 Sign in to the AWS Management Console, then follow these steps:
 
- 1. Create a S3 bucket from AWS Console (open the Amazon S3 console at [link](https://console.aws.amazon.com/s3/)) and store the Python scriptfile in it .
+ 1. Create an S3 bucket from the AWS Console (open the Amazon S3 console at the [link](https://console.aws.amazon.com/s3/)) and store the Python scriptfile in it.
  
- Use this [link](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) for creating S3 Bucket and this [link](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-an-object-bucket.html) for uploading an object into S3 Bucket.
+ Use this [link](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) for creating an S3 Bucket and this [link](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-an-object-bucket.html) for uploading an object into an S3 Bucket.
 
- 2. Now create an IAM role(open the IAM console at [link](https://console.aws.amazon.com/iam/)) (For Select trusted entity, choose AWS service. and for use case select CloudFormation) and add following IAM managed policy to it -
+ 2. Now create an IAM role (open the IAM console at [link](https://console.aws.amazon.com/iam/)). (For select trusted entity, choose the AWS service. and for the use case select CloudFormation) and add the following IAM-managed policy to it:
 
-- CloudWatchFullAccess
+    i. CloudWatchFullAccess
 
-- AmazonDynamoDBFullAccess
+    ii. AmazonDynamoDBFullAccess
 
-- IAMFullAccess
+    iii. IAMFullAccess
 
-- AmazonS3FullAccess
+    iv. AmazonS3FullAccess
 
-- AmazonSESFullAccess
+    v. AmazonSESFullAccess
 
-- AmazonSNSFullAccess
+    vi. AmazonSNSFullAccess
 
-- AWSGlueConsoleFullAccess
+    vii. AWSGlueConsoleFullAccess
 
-- AmazonEventBridgeFullAccess
-Use this [link](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) while creating IAM role (prefer creating from AWS console)
+    viii. AmazonEventBridgeFullAccess
 
- 3. Creating a stack with new resources on the AWS CloudFormation console (Open the AWS CloudFormation console at [link](https://console.aws.amazon.com/cloudformation)).
+Use this [link](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) while creating an IAM role (prefer creating from the AWS console).
 
-    i . Upload the downloaded AWS CloudFormation template and then choose next .
+ 3. Creating a stack with new resources on the AWS CloudFormation console (Open the AWS CloudFormation console at the [link](https://console.aws.amazon.com/cloudformation))
+
+    i. Upload the downloaded AWS CloudFormation template and then choose next.
  
-    ii. Specify the stack name and parameters 
+    ii. Specify the stack name and parameters.
  
-    iii. For SESRecieversMail and SESsendersMail select the emails which are not initially a verified identities in Amazon Simple Email Service(if they present initial delete them).
+    iii. For SESRecieversMail and SESsendersMail, select the emails that are not initially verified identities in Amazon Simple Email Service (if they are present initially, delete them).
  
-    iv. For IAM role, select the IAM role created in step-2 .
+    iv. For the IAM role, select the IAM role created in step 2.
 
-    v. Submit the stack after reviewing it .
+    v. Submit the stack after reviewing it.
 
-Use this [link](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html) for creating the stack .
+Use this [link](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html) to create the stack.
 
-This will deploy all the required resources with their respective properties for our project .
+This will deploy all the required resources and their respective properties for our project.
 
-**Make sure that all the created resources are in same region .**
+**Make sure that all the created resources are in the same region.**
 
 <a name="Executing_the_Job"><a/>
 # Executing The Job
-- Upload the excel data file in the S3 data bucket which is created by the CloudFormation template (Use can also use the excel file which is provided along with the script files to test the job.).
+- Upload the excel data file in the S3 data bucket that is created by the CloudFormation template (you can also use the excel file that is provided along with the script files to test the job).
 
-- Open the AWS glue console at [link](https://console.aws.amazon.com/glue/).Then choose the ETL Jobs tab in AWS Glue. Select the job which is created by AWS CloudFormation stack .
+- Open the AWS glue console at this [link](https://console.aws.amazon.com/glue/). Then choose the ETL Jobs tab in AWS Glue. Select the job that is created by the AWS CloudFormation stack.
 
-- Navigate to the Schedules tab of the visual editor . Choose the schedule that is already present there , then choose **Action** followed by  **Resume Schedule** . This activates the AWS Glue Job , now runs at an interval of 1 hour. 
+- Navigate to the Schedules tab of the visual editor. Choose the schedule that is already present there, then choose **Action**, followed by  **Resume Schedule**. This activates the AWS Glue Job, now runs at an interval of 1 hour. 
 
 Use this [link](https://docs.aws.amazon.com/glue/latest/ug/managing-jobs-chapter.html#manage-schedules) for further guidance regarding schedule.
 
-**Make sure that all the created resources are in same region .**
-
 <a name="Monitoring_the_Job"><a/>
 # Monitoring The Job
-Monitoring is very important for ETL jobs in the AWS Glue . You can easily debug a multipoint failure if one occurs using error logs.And you can see the output in output logs .
+Monitoring is very important for ETL jobs in the AWS Glue. You can easily debug a multipoint failure if one occurs using error logs. And you can see the output in the output logs.
 
 Use this [link](https://docs.aws.amazon.com/glue/latest/ug/monitoring-chapter.html) for further information.

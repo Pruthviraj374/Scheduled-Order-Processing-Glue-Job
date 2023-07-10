@@ -32,7 +32,7 @@ Sign in to the AWS Management Console, then follow these steps
  
  Use this [link](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) for creating S3 Bucket and this [link](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-an-object-bucket.html) for uploading an object into S3 Bucket.
 
- 2. Now create an IAM role(open the IAM console at [link](https://console.aws.amazon.com/iam/)) (For Select trusted entity, choose AWS service. and for use case select Glue) and add following IAM managed policy to it -
+ 2. Now create an IAM role(open the IAM console at [link](https://console.aws.amazon.com/iam/)) (For Select trusted entity, choose AWS service. and for use case select CloudFormation) and add following IAM managed policy to it -
 
 - CloudWatchFullAccess
 

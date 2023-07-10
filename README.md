@@ -16,7 +16,7 @@ Scheduled Order Processing Glue Job project is a scheduled data processing solut
 <a name="Architecture"></a>
 # Architecture
 picture
-
+![4TierAppArchitecture!](https://github.com/awanmbandi/aws-real-world-projects/blob/four-tier-mailing-app-project/prod-env-project-architecture.png)
 <a name="Workflow"></a>
 # Workflow
 The data which is stored in Amazon S3 bucket is accessed by Aws Glue job and validates the data according to python script which it retrives from another S3 bucket where the scriptfile is stored. After the validation, the valid data is stored in Dynamo table and to send the invalid data information to the user via email it uses [Amazon Simple Email Service](https://aws.amazon.com/ses/). 

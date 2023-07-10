@@ -18,9 +18,9 @@ Scheduled Order Processing Glue Job project is a scheduled data processing solut
 ![GlueJobArchitecture!](https://github.com/Pruthviraj374/Scheduled-Order-Processing-Glue-Job/blob/573638009f1656f7e539a596f377bd17a842eb47/Pictures/GlueJob%20architecture.png)
 <a name="Workflow"></a>
 # Workflow
-The data which is stored in Amazon S3 bucket is accessed by AWS Glue job and validates the data according to python script which it retrives from another S3 bucket where the scriptfile is stored. After the validation, the valid data is stored in Dynamo table and to send the invalid data information to the user via email it uses [Amazon Simple Email Service](https://aws.amazon.com/ses/). 
+The data that is stored in an Amazon S3 bucket is accessed by an AWS Glue job, which validates the data according to a Python script that it retrieves from another S3 bucket where the script file is stored. After the validation, the valid data is stored in a Dynamo table, and to send the invalid data information to the user via email, it uses [Amazon Simple Email Service](https://aws.amazon.com/ses/). 
 
-  It uses [Amazon EventBridge](https://aws.amazon.com/eventbridge/) which monitors job runs and triggers the [Amazon Simple Notification Service](https://aws.amazon.com/sns/) standard topic which sends the job failure alerts to its subscriptions.
+  It uses [Amazon EventBridge](https://aws.amazon.com/eventbridge/), which monitors job runs and triggers the [Amazon Simple Notification Service](https://aws.amazon.com/sns/) standard topic, which sends job failure alerts to its subscriptions.
 
 <a name="Installation_Guide"></a>
 # Installation Guide

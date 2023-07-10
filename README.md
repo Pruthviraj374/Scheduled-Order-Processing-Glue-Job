@@ -53,27 +53,29 @@ Use this [link](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create
 
  3. Creating a stack with new resources on the AWS CloudFormation console (Open the AWS CloudFormation console at [link](https://console.aws.amazon.com/cloudformation)).
 
- i . Upload the downloaded AWS CloudFormation template and then choose next .
+    i . Upload the downloaded AWS CloudFormation template and then choose next .
  
- ii. Specify the stack name and parameters 
+    ii. Specify the stack name and parameters 
  
- iii. For SESRecieversMail and SESsendersMail select the emails which are not initially a verified identities in Amazon Simple Email Service(if they present initial delete them).
+    iii. For SESRecieversMail and SESsendersMail select the emails which are not initially a verified identities in Amazon Simple Email Service(if they present initial delete them).
  
- iv. For IAM role, select the IAM role created in step-2 .
+    iv. For IAM role, select the IAM role created in step-2 .
 
- v. Submit the stack after reviewing it .
+    v. Submit the stack after reviewing it .
 
 Use this [link](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html) for creating the stack .
 
 This will deploy all the required resources with their respective properties for our project .
 
+**Make sure that all the created resources are in same region .**
+
 <a name="Executing_the_Job"><a/>
 # Executing The Job
-Upload the excel data file in the S3 data bucket which is created by the CloudFormation template (Use can also use the excel file which is provided along with the script files to test the job.).
+- Upload the excel data file in the S3 data bucket which is created by the CloudFormation template (Use can also use the excel file which is provided along with the script files to test the job.).
 
-Open the AWS glue console at [link](https://console.aws.amazon.com/glue/).Then choose the ETL Jobs tab in AWS Glue. Select the job which is created by AWS CloudFormation stack .
+- Open the AWS glue console at [link](https://console.aws.amazon.com/glue/).Then choose the ETL Jobs tab in AWS Glue. Select the job which is created by AWS CloudFormation stack .
 
-Navigate to the Schedules tab of the visual editor . Choose the schedule that is already present there , then choose **Action** followed by  **Resume Schedule** . This activates the AWS Glue Job , now runs at an interval of 1 hour. 
+- Navigate to the Schedules tab of the visual editor . Choose the schedule that is already present there , then choose **Action** followed by  **Resume Schedule** . This activates the AWS Glue Job , now runs at an interval of 1 hour. 
 
 Use this [link](https://docs.aws.amazon.com/glue/latest/ug/managing-jobs-chapter.html#manage-schedules) for further guidance regarding schedule.
 

@@ -15,7 +15,7 @@ Scheduled Order Processing Glue Job project is a scheduled data processing solut
 
 <a name="Architecture"></a>
 # Architecture
-![GlueJobArchitecture!](https://github.com/Pruthviraj374/Scheduled-Order-Processing-Glue-Job/blob/8acabd1ecf28885a732c40a50ea158a2d4b015a3/doc/GlueJob%20architecture.png)
+![GlueJobArchitecture!](https://github.com/Pruthviraj374/Scheduled-Order-Processing-Glue-Job/blob/1accf27678cd19a4de0c88187bf51ec5fb167221/doc/GlueJobArchitecture.png)
 <a name="Workflow"></a>
 # Workflow
 The data that is stored in an Amazon S3 bucket is accessed by an AWS Glue job, which validates the data according to a Python script that it retrieves from another S3 bucket where the script file is stored. After the validation, the valid data is stored in a Dynamo table, and to send the invalid data information to the user via email, it uses [Amazon Simple Email Service](https://aws.amazon.com/ses/). 
@@ -78,7 +78,7 @@ This will deploy all the required resources and their respective properties for 
 
 - Navigate to the Schedules tab of the visual editor. Choose the schedule that is already present there, then choose **Action**, followed by  **Resume Schedule**. This activates the AWS Glue Job, now runs at an interval of 1 hour. 
 
-![ScheduleInJob!](https://github.com/Pruthviraj374/Scheduled-Order-Processing-Glue-Job/blob/8acabd1ecf28885a732c40a50ea158a2d4b015a3/doc/Screenshot%202023-07-11%20at%2004-08-36%20Schedules%20-%20Editor%20-%20AWS%20Glue%20Studio.png)
+![ScheduleInJob!](https://github.com/Pruthviraj374/Scheduled-Order-Processing-Glue-Job/blob/1accf27678cd19a4de0c88187bf51ec5fb167221/doc/Schedules%20-%20Editor%20-%20AWS%20Glue%20Studio.png)
 
 Use this [link](https://docs.aws.amazon.com/glue/latest/ug/managing-jobs-chapter.html#manage-schedules) for further guidance regarding schedule.
 
@@ -86,6 +86,6 @@ Use this [link](https://docs.aws.amazon.com/glue/latest/ug/managing-jobs-chapter
 # Monitoring The Job
 Monitoring is very important for ETL jobs in the AWS Glue. You can easily debug a multipoint failure if one occurs using error logs. And you can see the output in the output logs.
 
-![GlueJobMonitoring!](https://github.com/Pruthviraj374/Scheduled-Order-Processing-Glue-Job/blob/8acabd1ecf28885a732c40a50ea158a2d4b015a3/doc/Screenshot%202023-07-11%20at%2004-15-47%20Runs%20-%20Editor%20-%20AWS%20Glue%20Studio.png)
+![GlueJobMonitoring!](https://github.com/Pruthviraj374/Scheduled-Order-Processing-Glue-Job/blob/1accf27678cd19a4de0c88187bf51ec5fb167221/doc/Runs%20-%20Editor%20-%20AWS%20Glue%20Studio.png)
 
 Use this [link](https://docs.aws.amazon.com/glue/latest/ug/monitoring-chapter.html) for further information.

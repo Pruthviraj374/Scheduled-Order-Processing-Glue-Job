@@ -32,16 +32,12 @@ def email_allert(
     """Appending the data in th body to the 
      email body by converting it into string
     """
-    
     for ele in body:
        data +=  ele
-       
     #The character encoding for the email.
     CHARSET = "UTF-8"
-    
     #Create a new AWS SES resource and specify a region.
     client = boto3.client('ses', region_name=AWS_REGION)
-​
     # Try to send the email.
     try:
         #Provide the contents of the email.
@@ -71,7 +67,6 @@ def email_allert(
     else:
         print("Email sent!")
     exit()
-​
 def insert_row_inbody(
         body, df, a):
     """
@@ -82,7 +77,6 @@ def insert_row_inbody(
     for i in range(5):
      body.append(str(df.loc[a].iat[i]) + "\t\t\t\t")
     body.append("\n!! The errors in this data set are ...!!")
-    
 def data_validation(
         df, body, a):
     """Validates the data in dataframe
@@ -99,14 +93,12 @@ def data_validation(
         #Appending the missing information into the body to display in mail
         body.append("\nOrder Id is not found .")
         valid = False
-​
     Cid = df.loc[a].iat[1]
     if pd.isnull(df.iloc[a, 1]) is True:
         if valid == True:
             insert_row_inbody(body, df, a)
         valid = False
         body.append("\nCustomer Id is not found .")
-​
     Od = df.loc[a].iat[2]
     if pd.isnull(df.iloc[a, 2]) is True:
         if valid == True:
@@ -120,7 +112,6 @@ def data_validation(
                 insert_row_inbody(body, df, a)
             valid = False
             body.append("\nOrder date format is not correct .")
-​
     Os = df.loc[a].iat[3]
     if pd.isnull(df.iloc[a, 3]) is True:
         if valid == True:
@@ -134,7 +125,6 @@ def data_validation(
                 insert_row_inbody(body, df, a)
             valid = False
             body.append("\nOrder Status is not valid .")
-​
     Ot = df.loc[a].iat[4]
     if pd.isnull(df.iloc[a, 4]) is True:
        if valid == True:
@@ -144,7 +134,6 @@ def data_validation(
     #if the data is valid sending it for insertion into Dynamodb table
     if valid == True:
         insert_data(Oid, Cid, Od, Os, Ot)
-​
 # Driver code
 import boto3
 import io 

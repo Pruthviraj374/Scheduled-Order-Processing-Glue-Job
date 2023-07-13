@@ -27,9 +27,6 @@ Parameters:
     Description: >-
       The email address for recieving the mail regarding the faults in order
       data .
-  DataFileName:
-    Type: String
-    Description: The name of the order data file .
   GlueJobName:
     Type: String
     Description: The name of AWS Glue job.
@@ -101,7 +98,6 @@ Resources:
         '--job-bookmark-option': job-bookmark-enable
         '--bucketname': !Ref DataBucketName
         '--tablename': !Ref DynamoTableName
-        '--datafilename': !Ref DataFileName
         '--RecieversMail': !Ref SESRecieversMail
         '--SendersMail': !Ref SESsendersMail
       ExecutionProperty:

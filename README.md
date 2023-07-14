@@ -72,7 +72,7 @@ This will deploy all the required resources and their respective properties for 
 
 <a name="Executing_the_Job"><a/>
 # Executing The Job
-- Upload the excel data file in the S3 data bucket that is created by the CloudFormation template (you can also use the excel file that is provided along with the script files to test the job).
+- Upload the folder naming "Input data" containing .csv data files in the S3 data bucket that is created by the CloudFormation template (you can also use the "Input data" folder that is provided along with the script files to test the job).
 
 - Open the AWS glue console at this [link](https://console.aws.amazon.com/glue/). Then choose the ETL Jobs tab in AWS Glue. Select the job that is created by the AWS CloudFormation stack.
 

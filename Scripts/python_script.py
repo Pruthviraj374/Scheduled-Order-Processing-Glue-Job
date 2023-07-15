@@ -14,7 +14,7 @@ def insert_data(
                 Item={
                     'Order_Id': df.iloc[i, 0],
                     'Customer_Id': df.iloc[i, 1],
-                    'Order_Date': df.iloc[i, 2].strftime("%d-%m-%Y"),
+                    'Order_Date': df.iloc[i, 2],
                     'Order_status': df.iloc[i, 3],
                     'Order_Total': int(df.iloc[i, 4]),
                 }
@@ -128,6 +128,15 @@ def insert_row_inbody(
     for i in range(5):
         body.append(str(df.loc[a].iat[i]) + "\t\t\t\t")
     body.append("\n!! The errors in this data set are ...!!")
+def is_date(string, fuzzy=False):
+    """
+    Checking whether the string contains date or not
+    """
+    try:
+        parse(string, fuzzy=fuzzy)
+        return True
+    except ValueError:
+        return False
 def data_validation(
         df, body, a):
     """Validates the data in dataframe
@@ -154,7 +163,7 @@ def data_validation(
         body.append("\nOrder Date is not found .")
     else:
         # Validating order date for invalid inputs
-        if not isinstance(df.loc[a].iat[2], datetime.date):
+        if not is_date(df.iloc[a, 2]):
             if valid:
                 insert_row_inbody(body, df, a)
                 valid = False
@@ -193,6 +202,7 @@ import pandas as pd
 import datetime
 from botocore.exceptions import ClientError
 from awsglue.utils import getResolvedOptions
+from dateutil.parser import parse
 # Accessing Job Parrameters
 args = getResolvedOptions(sys.argv, [
     'bucketname', 'tablename',
@@ -208,16 +218,13 @@ if not existance_of_files('Input data'):
 df = pd.DataFrame()
 Vdf = pd.DataFrame()
 IVdf = pd.DataFrame()
-p = 0
 # Accessing files from S3 Bucket
 for i in my_bucket.objects.filter(Prefix='Input data'):
-    if p != 0:
         s3_obj = s3.Object(bucket_name=args['bucketname'], key=i.key)
         s3_resp = s3_obj.get()
         temp = s3_resp['Body'].read()
         test = pd.read_csv(io.BytesIO(temp), header=None)
         df = pd.concat([df, test], ignore_index=True)
-    p += 1
 body = []
 length = len(df)
 # Sending each row of data for validation and saparating valid and invalid data

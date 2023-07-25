@@ -70,6 +70,8 @@ This will deploy all the required resources and their respective properties for 
 
 **Make sure that all the created resources are in the same region.**
 
+Resources Created by CloudFormation Stack
+![Stack!](https://github.com/Pruthviraj374/Scheduled-Order-Processing-Glue-Job/blob/c76d28e9e25e229320d2e603cddc30a781f9641c/doc/CloudFormation%20-%20Stack%20test1.png)
 <a name="Executing_the_Job"><a/>
 # Executing The Job
 - Upload the folder naming "Input data" containing .csv data files in the S3 data bucket that is created by the CloudFormation template (you can also use the "Input data" folder that is provided along with the script files to test the job).
